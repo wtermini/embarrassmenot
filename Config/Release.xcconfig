@@ -1,0 +1,8 @@
+// The build for GitHub and downloading: controls Apple's own Background
+// Sounds, through a private framework (BackgroundSounds.swift).
+#include "Base.xcconfig"
+
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = BACKGROUND_SOUNDS
+SWIFT_COMPILATION_MODE = wholemodule
+DEBUG_INFORMATION_FORMAT = dwarf-with-dsym
+CODE_SIGN_ENTITLEMENTS = Config/EmbarrassMeNot.entitlements

@@ -1,0 +1,232 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA0000000000000000000101 /* EmbarrassMeNotCore in Frameworks */ = {isa = PBXBuildFile; productRef = AA0000000000000000000401 /* EmbarrassMeNotCore */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AA0000000000000000000201 /* Embarrass Me Not.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Embarrass Me Not.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0000000000000000000202 /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
+		AA0000000000000000000203 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		AA0000000000000000000204 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		AA0000000000000000000205 /* AppStore.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppStore.xcconfig; sourceTree = "<group>"; };
+		AA0000000000000000000206 /* EmbarrassMeNot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EmbarrassMeNot.entitlements; sourceTree = "<group>"; };
+		AA0000000000000000000207 /* EmbarrassMeNotAppStore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EmbarrassMeNotAppStore.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		AA0000000000000000000301 /* EmbarrassMeNot */ = {isa = PBXFileSystemSynchronizedRootGroup; path = EmbarrassMeNot; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA0000000000000000000501 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0000000000000000000101 /* EmbarrassMeNotCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA0000000000000000000601 = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000301 /* EmbarrassMeNot */,
+				AA0000000000000000000602 /* Config */,
+				AA0000000000000000000603 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000602 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000202 /* Base.xcconfig */,
+				AA0000000000000000000203 /* Debug.xcconfig */,
+				AA0000000000000000000204 /* Release.xcconfig */,
+				AA0000000000000000000205 /* AppStore.xcconfig */,
+				AA0000000000000000000206 /* EmbarrassMeNot.entitlements */,
+				AA0000000000000000000207 /* EmbarrassMeNotAppStore.entitlements */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000603 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000201 /* Embarrass Me Not.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA0000000000000000000701 /* EmbarrassMeNot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0000000000000000000902 /* Build configuration list for PBXNativeTarget "EmbarrassMeNot" */;
+			buildPhases = (
+				AA0000000000000000000801 /* Sources */,
+				AA0000000000000000000501 /* Frameworks */,
+				AA0000000000000000000802 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AA0000000000000000000301 /* EmbarrassMeNot */,
+			);
+			name = EmbarrassMeNot;
+			packageProductDependencies = (
+				AA0000000000000000000401 /* EmbarrassMeNotCore */,
+			);
+			productName = EmbarrassMeNot;
+			productReference = AA0000000000000000000201 /* Embarrass Me Not.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA0000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					AA0000000000000000000701 = {
+						CreatedOnToolsVersion = 27.1;
+					};
+				};
+			};
+			buildConfigurationList = AA0000000000000000000901 /* Build configuration list for PBXProject "EmbarrassMeNot" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA0000000000000000000601;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				AA0000000000000000000402 /* XCLocalSwiftPackageReference "Core" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = AA0000000000000000000603 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA0000000000000000000701 /* EmbarrassMeNot */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA0000000000000000000802 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA0000000000000000000801 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AA0000000000000000000A01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA0000000000000000000203 /* Debug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		AA0000000000000000000A02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA0000000000000000000204 /* Release.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		AA0000000000000000000A03 /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA0000000000000000000205 /* AppStore.xcconfig */;
+			buildSettings = {
+			};
+			name = AppStore;
+		};
+		AA0000000000000000000A11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		AA0000000000000000000A12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		AA0000000000000000000A13 /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = AppStore;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA0000000000000000000901 /* Build configuration list for PBXProject "EmbarrassMeNot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000000000000000000A01 /* Debug */,
+				AA0000000000000000000A02 /* Release */,
+				AA0000000000000000000A03 /* AppStore */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA0000000000000000000902 /* Build configuration list for PBXNativeTarget "EmbarrassMeNot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000000000000000000A11 /* Debug */,
+				AA0000000000000000000A12 /* Release */,
+				AA0000000000000000000A13 /* AppStore */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		AA0000000000000000000402 /* XCLocalSwiftPackageReference "Core" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Core;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AA0000000000000000000401 /* EmbarrassMeNotCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = EmbarrassMeNotCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = AA0000000000000000000001 /* Project object */;
+}

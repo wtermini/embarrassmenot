@@ -1,0 +1,9 @@
+// The App Store build: sandboxed, and only Apple's public APIs. It plays its
+// own sounds (AmbiencePlayer.swift) in place of Apple's Background Sounds,
+// which only a private framework reaches (App Review Guideline 2.5.1).
+#include "Base.xcconfig"
+
+SWIFT_ACTIVE_COMPILATION_CONDITIONS =
+SWIFT_COMPILATION_MODE = wholemodule
+DEBUG_INFORMATION_FORMAT = dwarf-with-dsym
+CODE_SIGN_ENTITLEMENTS = Config/EmbarrassMeNotAppStore.entitlements
