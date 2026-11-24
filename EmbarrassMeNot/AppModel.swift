@@ -27,6 +27,7 @@ final class AppModel {
     @ObservationIgnored private var mutedByUs: Set<String> = []
     @ObservationIgnored private var watcher: AudioOutputWatcher?
     @ObservationIgnored private var timer: Task<Void, Never>?
+    @ObservationIgnored private var arrival: Task<Void, Never>?
 
     init() {
         defaults.register(defaults: ["muteSpeakers": true, "stopSounds": true, "startSounds": false])
@@ -42,9 +43,11 @@ final class AppModel {
     func outputsChanged() {
         let snapshot = AudioOutputs.snapshot()
         outputName = snapshot.outputs.first { $0.uid == snapshot.defaultOutput }?.name ?? ""
+        var unmute: [String] = []
         for action in speakerGuard.update(snapshot, at: .now) {
             switch action {
             case let .silence(output, headphones):
+                arrival?.cancel()
                 if muteSpeakers, AudioOutputs.setMuted(output, true) {
                     mutedByUs.insert(output)
                     let name = snapshot.outputs.first { $0.uid == output }?.name ?? output
@@ -52,9 +55,36 @@ final class AppModel {
                 }
                 if stopSounds { stopAllSounds() }
             case let .unsilence(output):
-                if mutedByUs.remove(output) != nil { AudioOutputs.setMuted(output, false) }
+                unmute.append(output)
             case .movedToHeadphones:
-                if startSounds { startSoundsNow() }
+                headphonesArrived(unmute: unmute)
+                unmute = []
+            }
+        }
+        for output in unmute where mutedByUs.remove(output) != nil {
+            AudioOutputs.setMuted(output, false)
+        }
+    }
+
+    /// AirPods take a moment after connecting before they can play, and
+    /// sound started in that moment goes to the speakers instead. So wait,
+    /// check sound still goes to headphones, start the background sounds,
+    /// and only then unmute the speakers muted when the headphones left: if
+    /// the sounds land on the speakers after all, nobody hears them.
+    private func headphonesArrived(unmute: [String]) {
+        arrival?.cancel()
+        arrival = Task { [weak self] in
+            try? await Task.sleep(for: .seconds(2))
+            guard let self, !Task.isCancelled else { return }
+            let now = AudioOutputs.snapshot()
+            let onHeadphones = now.outputs.first { $0.uid == now.defaultOutput }?.isWireless ?? false
+            if onHeadphones, self.startSounds {
+                self.startSoundsNow()
+                try? await Task.sleep(for: .seconds(2))
+                guard !Task.isCancelled else { return }
+            }
+            for output in unmute where self.mutedByUs.remove(output) != nil {
+                AudioOutputs.setMuted(output, false)
             }
         }
     }
