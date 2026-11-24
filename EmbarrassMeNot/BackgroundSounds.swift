@@ -8,6 +8,11 @@ import Observation
 /// from. Private, so never in the App Store build (`BACKGROUND_SOUNDS` is set
 /// in Debug and Release only); and a macOS update may break it, in which case
 /// `isAvailable` is false and the menu leaves it out.
+///
+/// The settings also hold the iPhone's "Use When Media Is Playing" and its
+/// volume, but the Mac doesn't use them: its System Settings offer the
+/// sound, the volume, a timer, an equaliser and stopping when the Mac isn't
+/// in use, and nothing about media. So they're left out here too.
 @Observable @MainActor
 final class BackgroundSounds {
     struct Sound: Identifiable, Hashable {
@@ -21,8 +26,6 @@ final class BackgroundSounds {
     private(set) var sounds: [Sound] = []
     private(set) var selected = 0
     private(set) var volume = 0.5
-    private(set) var mixesWithMedia = true
-    private(set) var mediaVolume = 0.2
     private(set) var stopsOnLock = false
 
     @ObservationIgnored private let settings: NSObject?
@@ -48,8 +51,6 @@ final class BackgroundSounds {
         guard isAvailable, let settings else { return }
         isOn = settings.value(forKey: "comfortSoundsEnabled") as? Bool ?? false
         volume = settings.value(forKey: "relativeVolume") as? Double ?? volume
-        mixesWithMedia = settings.value(forKey: "mixesWithMedia") as? Bool ?? mixesWithMedia
-        mediaVolume = settings.value(forKey: "mediaVolume") as? Double ?? mediaVolume
         stopsOnLock = settings.value(forKey: "stopsOnLock") as? Bool ?? stopsOnLock
         if let current = settings.value(forKey: "selectedComfortSound") as? NSObject,
            let name = current.value(forKey: "name") as? String,
@@ -60,8 +61,6 @@ final class BackgroundSounds {
 
     func setOn(_ on: Bool) { write(on, "comfortSoundsEnabled") }
     func setVolume(_ v: Double) { write(v, "relativeVolume") }
-    func setMixesWithMedia(_ on: Bool) { write(on, "mixesWithMedia") }
-    func setMediaVolume(_ v: Double) { write(v, "mediaVolume") }
     func setStopsOnLock(_ on: Bool) { write(on, "stopsOnLock") }
 
     func select(_ group: Int) {

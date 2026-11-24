@@ -20,8 +20,8 @@ left alone.
 ▸ Accessibility ▸ Audio), all from the menu bar:
 
 - on and off, and which sound
-- the volume, and the volume while other media plays
-- whether they keep playing with media, and whether they stop when the Mac locks
+- the volume
+- whether they stop when the Mac locks
 - a sleep timer: stop after 15 minutes up to 8 hours
 - start them by themselves when headphones connect
 

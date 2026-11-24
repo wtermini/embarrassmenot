@@ -71,11 +71,6 @@ struct MenuView: View {
             ForEach(s.sounds) { Text($0.name).tag($0.group) }
         }
         slider("Volume", Binding(get: { s.volume }, set: s.setVolume))
-        row("Play with media", Binding(get: { s.mixesWithMedia }, set: s.setMixesWithMedia))
-        if s.mixesWithMedia {
-            slider("With media", Binding(get: { s.mediaVolume }, set: s.setMediaVolume))
-                .padding(.leading, 12)
-        }
         row("Stop when the Mac locks", Binding(get: { s.stopsOnLock }, set: s.setStopsOnLock))
     }
     #endif
